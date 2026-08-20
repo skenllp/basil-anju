@@ -431,27 +431,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
       text-align: center;
-      padding-top: 70px;
-      padding-bottom: 70px;
-      background: url('hero-bg.jpg') center / cover no-repeat;
+      padding-top: 100px;
+      padding-bottom: 44px;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.22) 40%, rgba(0, 0, 0, 0.72) 100%), url('hero-bg.jpg') center / cover no-repeat;
       position: relative;
-    }
-
-    /* Frosted glass backdrop behind text for maximum readability */
-    .hero-backdrop {
-      position: relative;
-      z-index: 2;
-      background: rgba(16, 33, 23, 0.48);
-      backdrop-filter: blur(3px);
-      -webkit-backdrop-filter: blur(3px);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 4px;
-      padding: 52px 56px 44px;
-      max-width: 680px;
-      width: 92%;
-      margin: 0 auto;
     }
 
     .hero-sparkle {
@@ -489,6 +474,9 @@
       position: relative;
       z-index: 2;
       width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
     .hero-cross {
@@ -498,7 +486,6 @@
     .hero-cross svg {
       width: 46px;
       height: 46px;
-      filter: drop-shadow(0 2px 6px rgba(13, 31, 45, 0.50));
     }
 
     .hero-names {
@@ -506,10 +493,7 @@
       font-size: clamp(52px, 10vw, 92px);
       color: #ffffff;
       line-height: 1.05;
-      margin: 10px 0 14px;
-      text-shadow:
-        0 2px 24px rgba(13, 31, 45, 0.80),
-        0 1px 3px rgba(0, 0, 0, 0.60);
+      margin: 8px 0 12px;
     }
 
     .hero-names .amp-script {
@@ -519,40 +503,36 @@
       vertical-align: middle;
       margin: 0 6px;
       line-height: 1;
-      text-shadow: 0 2px 16px rgba(13, 31, 45, 0.70);
     }
 
     .hero-tagline {
       font-family: 'Lora', serif;
       font-size: 17px;
       color: rgba(255, 255, 255, 0.95);
-      max-width: 420px;
+      max-width: 440px;
       margin: 0 auto 6px;
-      line-height: 1.75;
-      text-shadow: 0 1px 6px rgba(13, 31, 45, 0.70);
+      line-height: 1.7;
       letter-spacing: 0.02em;
     }
 
     .hero-event-label {
-      margin-top: 16px;
+      margin-top: 14px;
       font-family: 'Playfair Display', serif;
       font-size: 16px;
       letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--gold-pale);
       font-weight: 500;
-      text-shadow: 0 1px 8px rgba(13, 31, 45, 0.70);
     }
 
     .hero-dates {
-      margin-top: 10px;
+      margin-top: 8px;
       font-family: 'Lora', serif;
       letter-spacing: 0.24em;
       text-transform: uppercase;
       font-size: 12.5px;
-      color: rgba(255, 255, 255, 0.90);
+      color: rgba(255, 255, 255, 0.95);
       font-weight: 500;
-      text-shadow: 0 1px 6px rgba(13, 31, 45, 0.65);
     }
 
     /* White divider in hero */
@@ -578,7 +558,6 @@
       font-size: 10px;
       color: rgba(255, 255, 255, 0.85);
       font-family: 'Lora', serif;
-      text-shadow: 0 1px 4px rgba(13, 31, 45, 0.60);
     }
 
     .chev {
@@ -1431,13 +1410,7 @@
         padding: 72px 6vw;
       }
 
-      /* Hero */
-      .hero-backdrop {
-        padding: 38px 28px 34px;
-        width: 94%;
-        backdrop-filter: blur(3px);
-        -webkit-backdrop-filter: blur(3px);
-      }
+
 
       .hero-names {
         font-size: clamp(48px, 12vw, 80px);
@@ -1550,12 +1523,7 @@
         padding: 60px 5vw;
       }
 
-      /* Hero */
-      .hero-backdrop {
-        padding: 30px 20px 28px;
-        width: 96%;
-        background: rgba(16, 33, 23, 0.52);
-      }
+
 
       .hero-names {
         font-size: clamp(42px, 13vw, 64px);
@@ -1659,10 +1627,7 @@
         padding: 52px 4.5vw;
       }
 
-      .hero-backdrop {
-        padding: 26px 16px 24px;
-        width: 98%;
-      }
+
 
       .hero-names {
         font-size: clamp(38px, 13.5vw, 56px);
@@ -1726,9 +1691,7 @@
 
     /* --- Fold / very small (≤ 320px) --- */
     @media (max-width: 320px) {
-      .hero-backdrop {
-        padding: 22px 14px 20px;
-      }
+
 
       .hero-names {
         font-size: 34px;
@@ -1863,30 +1826,28 @@
       <span class="hero-sparkle" style="--dur:11s;--del:4s;  left:22%; top:55%;"></span>
 
       <div class="hero-content reveal">
-        <div class="hero-backdrop">
-          <h1 class="hero-names" id="hero-heading">
-            Basil
-            <span class="amp-script">&amp;</span>
-            Anju
-          </h1>
+        <h1 class="hero-names" id="hero-heading">
+          Basil
+          <span class="amp-script">&amp;</span>
+          Anju
+        </h1>
 
-          <p class="hero-tagline">
-            We joyfully invite you to witness the wedding of
-          </p>
+        <p class="hero-tagline">
+          We joyfully invite you to witness the wedding of
+        </p>
 
-          <div class="hero-event-label">Holy Matrimony &amp; Reception</div>
-          <div class="hero-dates">Saturday, September 19, 2026 &middot; 10:30 AM</div>
+        <div class="hero-event-label">Holy Matrimony &amp; Reception</div>
+        <div class="hero-dates">Saturday, September 19, 2026 &middot; 10:30 AM</div>
 
-          <div class="divider" aria-hidden="true">
-            <span class="line"></span>
-            <span class="gem"></span>
-            <span class="line"></span>
-          </div>
+        <div class="divider" aria-hidden="true">
+          <span class="line"></span>
+          <span class="gem"></span>
+          <span class="line"></span>
+        </div>
 
-          <div class="scroll-cue" aria-hidden="true">
-            <span>Scroll</span>
-            <div class="chev"></div>
-          </div>
+        <div class="scroll-cue" aria-hidden="true">
+          <span>Scroll</span>
+          <div class="chev"></div>
         </div>
       </div>
     </section>
@@ -2306,7 +2267,7 @@
         <!-- Compliments banner -->
         <div style="margin: 28px auto 0; padding: 18px 26px; border: 1px solid rgba(184, 150, 88, 0.40); border-radius: 4px; display: inline-block; max-width: 520px; background: rgba(16, 33, 23, 0.50); backdrop-filter: blur(4px);">
           <div style="font-family:'Lora',serif;font-size:11.5px;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:8px;font-style:italic;">With Best Compliments From</div>
-          <div style="font-family:'Playfair Display',serif;font-size:18px;color:#ffffff;letter-spacing:0.04em;">Aparna, Maneesh, Abraham &amp; John</div>
+          <div style="font-family:'Playfair Display',serif;font-size:18px;color:#ffffff;letter-spacing:0.04em;">Aparna, Maneesh, Abraham &amp; John ,Sa</div>
         </div>
 
         <div class="hashtag" style="margin-top:28px;">#BasilWedsAnju</div>
