@@ -1152,17 +1152,26 @@
       box-shadow: 0 18px 40px -8px var(--shadow-dark);
     }
 
-    /* Fixed pixel-perfect heights on desktop */
-    .g-l1 { height: 480px; }
-    .g-l2 { height: 320px; }
-    .g-l3 { height: 460px; }
-    .g-l4 { height: 320px; }
+    /* === Pixel-perfect heights from real image aspect ratios ===
+       Column width ≈ 397px (820px max-width ÷ 2 − 7px gap)
+       Portrait  (928×1392 → ratio 1.50): 397 × 1.50 = 596px
+       Landscape (1404×936  → ratio 0.67): 397 × 0.67 = 266px
+       Each col: 3 portrait + 2 landscape = 3×596 + 2×266 = 2320px
+       Visual:  2320 + 4×14gap = 2376px — both columns identical ✅ */
 
-    .g-r1 { height: 360px; }
-    .g-r2 { height: 280px; }
-    .g-r3 { height: 280px; }
-    .g-r4 { height: 360px; }
-    .g-r5 { height: 280px; }
+    /* Left col: P, L, P, L, P */
+    .g-l1 { height: 596px; }   /* portrait  */
+    .g-l2 { height: 266px; }   /* landscape */
+    .g-l3 { height: 596px; }   /* portrait  */
+    .g-l4 { height: 266px; }   /* landscape */
+    .g-l5 { height: 596px; }   /* portrait  */
+
+    /* Right col: L, P, L, P, P  (ends with 2 portraits to balance last row) */
+    .g-r1 { height: 266px; }   /* landscape */
+    .g-r2 { height: 596px; }   /* portrait  */
+    .g-r3 { height: 266px; }   /* landscape */
+    .g-r4 { height: 596px; }   /* portrait  */
+    .g-r5 { height: 596px; }   /* portrait  */
 
     .gallery-img-pure {
       width: 100%;
@@ -1587,15 +1596,18 @@
         gap: 10px;
       }
 
-      .g-l1 { height: 300px; }
-      .g-l2 { height: 200px; }
-      .g-l3 { height: 290px; }
-      .g-l4 { height: 200px; }
-      .g-r1 { height: 220px; }
-      .g-r2 { height: 180px; }
-      .g-r3 { height: 180px; }
-      .g-r4 { height: 220px; }
-      .g-r5 { height: 180px; }
+      /* Tablet ≈ 63% scale — col width ≈ 250px
+         Portrait: 250×1.50 = 374px  Landscape: 250×0.67 = 167px */
+      .g-l1 { height: 374px; }
+      .g-l2 { height: 167px; }
+      .g-l3 { height: 374px; }
+      .g-l4 { height: 167px; }
+      .g-l5 { height: 374px; }
+      .g-r1 { height: 167px; }
+      .g-r2 { height: 374px; }
+      .g-r3 { height: 167px; }
+      .g-r4 { height: 374px; }
+      .g-r5 { height: 374px; }
 
       .event-btn {
         padding: 12px 20px;
@@ -1681,15 +1693,18 @@
         gap: 8px;
       }
 
-      .g-l1 { height: 240px; }
-      .g-l2 { height: 160px; }
-      .g-l3 { height: 230px; }
-      .g-l4 { height: 160px; }
-      .g-r1 { height: 180px; }
-      .g-r2 { height: 140px; }
-      .g-r3 { height: 140px; }
-      .g-r4 { height: 180px; }
-      .g-r5 { height: 140px; }
+      /* Small phones ≈ 47% scale — col width ≈ 186px
+         Portrait: 186×1.50 = 280px  Landscape: 186×0.67 = 125px */
+      .g-l1 { height: 280px; }
+      .g-l2 { height: 125px; }
+      .g-l3 { height: 280px; }
+      .g-l4 { height: 125px; }
+      .g-l5 { height: 280px; }
+      .g-r1 { height: 125px; }
+      .g-r2 { height: 280px; }
+      .g-r3 { height: 125px; }
+      .g-r4 { height: 280px; }
+      .g-r5 { height: 280px; }
 
       .cover-name .n {
         font-size: 28px;
@@ -1725,15 +1740,18 @@
         gap: 6px;
       }
 
-      .g-l1 { height: 200px; }
-      .g-l2 { height: 130px; }
-      .g-l3 { height: 190px; }
-      .g-l4 { height: 130px; }
-      .g-r1 { height: 150px; }
-      .g-r2 { height: 120px; }
-      .g-r3 { height: 120px; }
-      .g-r4 { height: 150px; }
-      .g-r5 { height: 120px; }
+      /* Fold ≈ 38% scale — col width ≈ 150px
+         Portrait: 150×1.50 = 225px  Landscape: 150×0.67 = 100px */
+      .g-l1 { height: 225px; }
+      .g-l2 { height: 100px; }
+      .g-l3 { height: 225px; }
+      .g-l4 { height: 100px; }
+      .g-l5 { height: 225px; }
+      .g-r1 { height: 100px; }
+      .g-r2 { height: 225px; }
+      .g-r3 { height: 100px; }
+      .g-r4 { height: 225px; }
+      .g-r5 { height: 225px; }
     }
   </style>
 </head>
@@ -2126,38 +2144,41 @@
       </div>
 
       <div class="gallery-collage-grid reveal" style="transition-delay: 0.12s;">
-        <!-- Left Column: 4 photos -->
+        <!-- Left Column: 5 photos — Portrait, Landscape, Portrait, Landscape, Portrait -->
         <div class="gallery-col">
-          <div class="gallery-card g-l1">
-            <img src="gallery3.jpeg" alt="Basil & Anju Dancing" class="gallery-img-pure" loading="lazy" style="object-position: center 20%;">
+          <div class="gallery-card g-l1"><!-- PORTRAIT -->
+            <img src="gallery3.jpeg" alt="Basil &amp; Anju" class="gallery-img-pure" loading="lazy" style="object-position: center 20%;">
           </div>
-          <div class="gallery-card g-l2">
-            <img src="gallery4.jpeg" alt="Basil & Anju Holding Hands" class="gallery-img-pure" loading="lazy" style="object-position: center 25%;">
+          <div class="gallery-card g-l2"><!-- LANDSCAPE -->
+            <img src="gallery2.jpeg" alt="Basil &amp; Anju Together" class="gallery-img-pure" loading="lazy" style="object-position: center 50%;">
           </div>
-          <div class="gallery-card g-l3">
-            <img src="gallery7.png" alt="Basil & Anju Moments" class="gallery-img-pure" loading="lazy" style="object-position: center 20%;">
+          <div class="gallery-card g-l3"><!-- PORTRAIT -->
+            <img src="gallery7.jpeg" alt="Basil &amp; Anju Moments" class="gallery-img-pure" loading="lazy" style="object-position: center 20%;">
           </div>
-          <div class="gallery-card g-l4">
-            <img src="gallery9.png" alt="Basil & Anju Together" class="gallery-img-pure" loading="lazy" style="object-position: center 25%;">
+          <div class="gallery-card g-l4"><!-- LANDSCAPE -->
+            <img src="gallery5.jpeg" alt="Basil &amp; Anju Smiling" class="gallery-img-pure" loading="lazy" style="object-position: center 50%;">
+          </div>
+          <div class="gallery-card g-l5"><!-- PORTRAIT -->
+            <img src="gallery9.jpeg" alt="Basil &amp; Anju Celebration" class="gallery-img-pure" loading="lazy" style="object-position: center 20%;">
           </div>
         </div>
 
-        <!-- Right Column: 5 photos -->
+        <!-- Right Column: 5 photos — Landscape, Portrait, Landscape, Portrait, Portrait -->
         <div class="gallery-col">
-          <div class="gallery-card g-r1">
-            <img src="gallery1.jpeg" alt="Basil & Anju Portrait" class="gallery-img-pure" loading="lazy" style="object-position: center 25%;">
+          <div class="gallery-card g-r1"><!-- LANDSCAPE -->
+            <img src="gallery4.jpeg" alt="Basil &amp; Anju Holding Hands" class="gallery-img-pure" loading="lazy" style="object-position: center 50%;">
           </div>
-          <div class="gallery-card g-r2">
-            <img src="gallery2.jpeg" alt="Basil & Anju Laughing" class="gallery-img-pure" loading="lazy" style="object-position: center 20%;">
+          <div class="gallery-card g-r2"><!-- PORTRAIT -->
+            <img src="gallery1.jpeg" alt="Basil &amp; Anju Dancing" class="gallery-img-pure" loading="lazy" style="object-position: center 20%;">
           </div>
-          <div class="gallery-card g-r3">
-            <img src="img5.jpeg" alt="Basil & Anju Embrace" class="gallery-img-pure" loading="lazy" style="object-position: center 20%;">
+          <div class="gallery-card g-r3"><!-- LANDSCAPE -->
+            <img src="gallery10.jpeg" alt="Basil &amp; Anju Special Moment" class="gallery-img-pure" loading="lazy" style="object-position: center 50%;">
           </div>
-          <div class="gallery-card g-r4">
-            <img src="gallery8.png" alt="Basil & Anju Smiling" class="gallery-img-pure" loading="lazy" style="object-position: center 20%;">
+          <div class="gallery-card g-r4"><!-- PORTRAIT -->
+            <img src="gallery11.jpeg" alt="Basil &amp; Anju Laughing" class="gallery-img-pure" loading="lazy" style="object-position: center 20%;">
           </div>
-          <div class="gallery-card g-r5">
-            <img src="gallery6.png" alt="Basil & Anju Celebration" class="gallery-img-pure" loading="lazy" style="object-position: center 25%;">
+          <div class="gallery-card g-r5"><!-- PORTRAIT -->
+            <img src="gallery8.jpeg" alt="Basil &amp; Anju Embrace" class="gallery-img-pure" loading="lazy" style="object-position: center 20%;">
           </div>
         </div>
       </div>
